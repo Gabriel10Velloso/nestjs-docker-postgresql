@@ -6,6 +6,7 @@ import { Task } from './task.entity';
 
 @EntityRepository(Task)
 export class TasksRepository extends Repository<Task> {
+
   async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     const { status, search } = filterDto;
 
@@ -38,4 +39,5 @@ export class TasksRepository extends Repository<Task> {
     await this.save(task);
     return task;
   }
+
 }
